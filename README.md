@@ -8,7 +8,7 @@ A personal landing page for Richard Buckner.
 ├── index.html
 ├── README.md
 └── images/
-    └── profile.png
+    └── profile1.jpg
 ```
 
 ## Setup
@@ -21,7 +21,7 @@ A personal landing page for Richard Buckner.
 ## Customization
 
 - Update links in `index.html` to point to your actual URLs
-- Replace `images/profile.png` with your own profile image
+- Replace `images/profile1.jpg` with your own profile image
 - Modify colors in the `:root` CSS variables
 
 ## License
