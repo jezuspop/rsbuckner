@@ -6,6 +6,7 @@ A personal landing page for Richard Buckner.
 
 ```
 ├── index.html
+├── media.html
 └── README.md
 ```
 
