@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Buckner</title>
+    <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Gilroy-Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .name {
+            font-size: 5.25rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tagline {
+            font-size: 0.875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .bio {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            opacity: 0.8;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scripture-ref {
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            margin-top: 0.75rem;
+            opacity: 0.5;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link {
+            display: block;
+            padding: 1.5rem 2rem;
+            background: var(--white);
+            border: 3px solid var(--black);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0 var(--black);
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out backwards;
+        }
+
+        .link:nth-child(1) { animation-delay: 0.1s; }
+        .link:nth-child(2) { animation-delay: 0.2s; }
+        .link:nth-child(3) { animation-delay: 0.3s; }
+        .link:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--black);
+            transition: width var(--transition);
+            z-index: 0;
+            border-radius: 9px;
+        }
+
+        .link:hover::before {
+            width: 100%;
+        }
+
+        .link span {
+            position: relative;
+            z-index: 1;
+            transition: color var(--transition);
+        }
+
+        .link:hover span {
+            color: var(--white);
+        }
+
+        .link:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 var(--black);
+            border-color: var(--black);
+        }
+
+        .link:active {
+            transform: translate(4px, 4px) scale(0.98);
+            box-shadow: 0 0 0 var(--black);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            font-weight: 700;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 640px) {
+            .name {
+                font-size: 3.75rem;
+            }
+
+            .link {
+                padding: 1.25rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <p class="subtitle">CHRISTIAN PASTOR + DIGITAL EVANGELIST</p>
+            <h1 class="name">RICHARD<br>BUCKNER</h1>
+            <p class="tagline">NICE TO MEET YOU!</p>
+            <p class="bio">I am a Christian, husband, father, pastor, designer, and nerd. I seek to find common ground with everyone I meet to share the message of Jesus.</p>
+            <p class="scripture-ref">-1 Corinthians 9:22 NLT-</p>
+        </header>
+
+        <nav class="links">
+            <a href="https://www.gpcc.org" target="_blank" class="link">
+                <span>My Local Church</span>
+            </a>
+            <a href="https://disciplestoday.org/find-us/" target="_blank" class="link">
+                <span>My Family of Churches</span>
+            </a>
+            <a href="https://jezuspop.com" target="_blank" class="link">
+                <span>My Media Ministry</span>
+            </a>
+            <a href="mailto:richard.buckner@gpcc.org?subject=Your%20Prayer%20Request" target="_blank" class="link">
+                <span>Your Prayer Request</span>
+            </a>
+        </nav>
+
+        <footer class="footer">
+            <p class="copyright">© 2026 Richard Buckner</p>
+        </footer>
+    </div>
+</body>
+</html>
