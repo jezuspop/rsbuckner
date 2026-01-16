@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richard Buckner</title>
+    <title>My Local Church - Richard Buckner</title>
     <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
     <style>
         * {
@@ -65,46 +65,41 @@
             }
         }
 
-        .subtitle {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            opacity: 0.6;
-            margin-bottom: 0.5rem;
-        }
-
-        .name {
-            font-size: 5.25rem;
-            line-height: 1;
+        .page-title {
+            font-size: 3rem;
+            line-height: 1.1;
             letter-spacing: -0.02em;
-            margin-top: 1rem;
             margin-bottom: 1.5rem;
         }
 
-        .tagline {
-            font-size: 0.875rem;
-            letter-spacing: 0.2em;
+        .info-box {
+            padding: 2rem;
+            background: var(--button-bg);
+            border: 3px solid var(--black);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0 var(--black);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.33s ease-out 0.055s backwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .info-box p {
+            font-size: 1.265rem;
+            line-height: 1.8;
             text-transform: uppercase;
+            letter-spacing: 0.02em;
             font-weight: 700;
-            margin-top: 1.5rem;
-            opacity: 0.7;
-        }
-
-        .bio {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-top: 1rem;
-            opacity: 0.8;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .scripture-ref {
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-            margin-top: 0.75rem;
-            opacity: 0.5;
         }
 
         .links {
@@ -133,21 +128,8 @@
             animation: slideIn 0.33s ease-out backwards;
         }
 
-        .link:nth-child(1) { animation-delay: 0.055s; }
-        .link:nth-child(2) { animation-delay: 0.11s; }
-        .link:nth-child(3) { animation-delay: 0.165s; }
-        .link:nth-child(4) { animation-delay: 0.22s; }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+        .link:nth-child(1) { animation-delay: 0.11s; }
+        .link:nth-child(2) { animation-delay: 0.165s; }
 
         .link::before {
             content: '';
@@ -187,11 +169,37 @@
             box-shadow: 0 0 0 var(--black);
         }
 
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 1.5rem;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--black);
+            text-decoration: none;
+            background: var(--button-bg);
+            border: 3px solid var(--black);
+            border-radius: 12px;
+            box-shadow: 4px 4px 0 var(--black);
+            transition: all var(--transition);
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 var(--black);
+        }
+
         .footer {
             margin-top: 2rem;
             text-align: center;
             opacity: 0;
             animation: fadeIn 0.55s ease-out 0.44s forwards;
+        }
+
+        .footer .back-link {
+            margin-bottom: 1.5rem;
         }
 
         .copyright {
@@ -216,8 +224,16 @@
         }
 
         @media (max-width: 640px) {
-            .name {
-                font-size: 3.75rem;
+            .page-title {
+                font-size: 2.25rem;
+            }
+
+            .info-box {
+                padding: 1.5rem;
+            }
+
+            .info-box p {
+                font-size: 1.15rem;
             }
 
             .link {
@@ -230,29 +246,27 @@
 <body>
     <div class="container">
         <header class="header">
-            <p class="subtitle">CHRISTIAN PASTOR + DIGITAL EVANGELIST</p>
-            <h1 class="name">RICHARD<br>BUCKNER</h1>
-            <p class="tagline">NICE TO MEET YOU!</p>
-            <p class="bio">I am a Christian, husband, father, pastor, designer, and nerd. I seek to find common ground with everyone I meet to share the message of Jesus.</p>
-            <p class="scripture-ref">-1 Corinthians 9:22 NLT-</p>
+            <h1 class="page-title">MY LOCAL<br>CHURCH</h1>
         </header>
 
+        <div class="info-box">
+            <p>Montgomery County Congregation<br>
+            Greater Philadelphia Church of Christ<br>
+            Worship Service Sundays @ 10:30am<br>
+            Temple Ambler Campus</p>
+        </div>
+
         <nav class="links">
-            <a href="church.html" class="link">
-                <span>My Local Church</span>
+            <a href="https://maps.app.goo.gl/oYmyHbPCGLh6HYM4A" target="_blank" class="link">
+                <span>Map Location</span>
             </a>
-            <a href="https://disciplestoday.org/find-us/" target="_blank" class="link">
-                <span>My Family of Churches</span>
-            </a>
-            <a href="media.html" class="link">
-                <span>My Media Ministry</span>
-            </a>
-            <a href="mailto:richard.buckner@gpcc.org?subject=Your%20Prayer%20Request" target="_blank" class="link">
-                <span>Your Prayer Request</span>
+            <a href="https://www.gpcc.org" target="_blank" class="link">
+                <span>Visit Website</span>
             </a>
         </nav>
 
         <footer class="footer">
+            <a href="index.html" class="back-link">← Back to Home</a>
             <p class="copyright">© 2026 Richard Buckner</p>
         </footer>
     </div>
